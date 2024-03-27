@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header { 
+    border-bottom: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 10px 10px 100px;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+}
+
+header h1 {
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    text-align: center;
+    
+}
+
+#new-book {
+    height: 20px;
+    align-self: center;
+    margin-left: auto;
+    width: 100px;
+    height: 25px;
+    border-radius: 10px;
+    border: 1px solid black;
+    background-color: cornflowerblue;
+}
+
+#book-card {
+    padding: 40px;
+    border-radius: 10px;
+    border: 1px solid black;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-self: center;
+    align-self: center;
+}
+
+#book-card h2 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#book-card label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#submit-form {
+    width: 100%;
+    height: 25px;
+    margin-top: 15px;
+}
