@@ -13,13 +13,13 @@
         <button id="new-book" onclick="addBookToLibrary()">New Book</button>
     </header> 
     <div id="library-container">
-        <dialog id="book-card">
+        <dialog id="dialog-book">
             <form id="create-book">
                 <h2>Add new book</h2>
                 <label for="book-name">Name: <input type="text" id="book-name" required/></label>
                 <label for="book-author">Author: <input type="text" id="book-author" required/></label>
-                <label for="book-pages">Pages: <input type="text" id="book-pages" required/></label>
-                <label for="book-read">Have you read this book? <input type="checkbox" id="book-read" required/></label>
+                <label for="book-pages">Pages: <input type="number" id="book-pages" required/></label>
+                <label for="book-read">Have you read this book? <input type="checkbox" id="book-read"/></label>
                 <input type="submit" value="Submit" id="submit-form"/>
             </form>
         </dialog>
