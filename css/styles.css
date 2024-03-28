@@ -75,6 +75,8 @@ header h1 {
     margin-left: 20px;
     padding: 20px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 #book-card h3 {
@@ -90,7 +92,7 @@ header h1 {
 }
 
 #remove-book {
-    margin-top: 20px;
     width: 100px;
     height: 25px;
+    align-self: center;
 }

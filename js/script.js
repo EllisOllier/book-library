@@ -5,12 +5,6 @@ function Book(name, author, pages, isRead) {
     this.author = author;
     this.pages = pages;
     this.isRead = isRead;
-    this.getReadStatus = function(){
-        return this.isRead;
-    }
-    this.setReadStatus = function(bool){
-        this.isRead = bool;
-    }
 }
 
 function showForm() {
@@ -79,15 +73,15 @@ form.addEventListener('submit', (e) => {
     })
 
     readStatus.addEventListener('mousedown', (e) => {
-        let status = document.getElementById('read-status');
-        if(book.getReadStatus()){
-            status.textContent = "Not read";
-            status.style.color = "red";
-            book.setReadStatus(false);
+        
+        if(book.isRead){
+            e.target.textContent = "Not read";
+            e.target.style.color = "red";
+            book.isRead = false;
         } else {
-            status.textContent = "Read";
-            status.style.color = "green";
-            book.setReadStatus(true);
+            e.target.textContent = "Read";
+            e.target.style.color = "green";
+            book.isRead = true;
         }
     })
 })
