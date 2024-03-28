@@ -1,4 +1,5 @@
 const myLibrary = [];
+const dialogBox = document.getElementById("dialog-book");
 
 function Book(name, author, pages, isRead) {
     this.name = name;
@@ -7,10 +8,11 @@ function Book(name, author, pages, isRead) {
     this.isRead = isRead;
 }
 
-function addBookToLibrary() {
-    let dialogBox = document.getElementById("dialog-book");
+function showForm() {
     dialogBox.show();
-    const form = document.querySelector('form');
+}
+
+const form = document.querySelector('form');
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         let book = new Book(
@@ -47,6 +49,7 @@ function addBookToLibrary() {
         bookCard.appendChild(removeBook);
         libraryContianer.appendChild(bookCard);
 
+
         dialogBox.close();
         
         removeBook.addEventListener('mousedown', (e) => {
@@ -56,6 +59,9 @@ function addBookToLibrary() {
             }
         })
     })
+
+function addBookToLibrary() {
+    
 }
 
 
