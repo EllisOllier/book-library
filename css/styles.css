@@ -20,6 +20,11 @@ header h1 {
     
 }
 
+#library-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 #new-book {
     height: 20px;
     align-self: center;
@@ -62,7 +67,30 @@ header h1 {
 }
 
 #book-card {
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 75px;
+    margin-left: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+#book-card h3 {
+    font-size: xx-large;
+}
+
+#book-card h4 {
+    margin-bottom: 50px;
+}
+
+#book-card p {
+    font-weight: bold;
+}
+
+#remove-book {
+    margin-top: 20px;
+    width: 100px;
+    height: 25px;
 }

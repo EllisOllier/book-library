@@ -1,6 +1,3 @@
-
-
-
 const myLibrary = [];
 
 function Book(name, author, pages, isRead) {
@@ -11,7 +8,8 @@ function Book(name, author, pages, isRead) {
 }
 
 function addBookToLibrary() {
-    document.getElementById("dialog-book").show();
+    let dialogBox = document.getElementById("dialog-book");
+    dialogBox.show();
     const form = document.querySelector('form');
     form.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -28,6 +26,8 @@ function addBookToLibrary() {
         let authorTitle = document.createElement('h4');
         let bookPages = document.createElement('p');
         let readStatus = document.createElement('p');
+        let removeBook = document.createElement('button');
+
         if(book.isRead){
             readStatus.textContent = ("Status: Read")
         } else {
@@ -37,13 +37,27 @@ function addBookToLibrary() {
         authorTitle.textContent =  ("by " + book.author);
         bookPages.textContent = ("Pages: " + book.pages);
         bookCard.id = "book-card";
+        removeBook.id = "remove-book";
+        removeBook.textContent = "Remove"
         
         bookCard.appendChild(bookTitle);
         bookCard.appendChild(authorTitle);
         bookCard.appendChild(bookPages);
         bookCard.appendChild(readStatus);
+        bookCard.appendChild(removeBook);
         libraryContianer.appendChild(bookCard);
+
+        dialogBox.close();
         
-        
+        removeBook.addEventListener('mousedown', (e) => {
+            while(bookCard.lastElementChild){
+                bookCard.removeChild(bookCard.lastElementChild);
+                bookCard.remove();
+            }
+        })
     })
 }
+
+
+
+
