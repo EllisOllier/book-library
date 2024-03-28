@@ -74,14 +74,17 @@ form.addEventListener('submit', (e) => {
 
     readStatus.addEventListener('mousedown', (e) => {
         
-        if(book.isRead){
-            e.target.textContent = "Not read";
-            e.target.style.color = "red";
-            book.isRead = false;
-        } else {
-            e.target.textContent = "Read";
-            e.target.style.color = "green";
-            book.isRead = true;
+        if(e.target.id === 'read-status'){
+            if(book.isRead){
+                e.target.textContent = "Not read";
+                e.target.style.color = "red";
+                book.isRead = false;
+            } else {
+                e.target.textContent = "Read";
+                e.target.style.color = "green";
+                book.isRead = true;
+            }
         }
+        
     })
 })
