@@ -80,8 +80,8 @@ function displayLibrary() {
 }
 
 function removeCard() {
-    let button = document.getElementById('remove-card');
-    button.parentNode.remove();
+    document.getElementById('remove-card').parentNode.remove();
+    // TODO: Get button parent object and remove from array
 }
 
 function changeReadStatus(button) {
@@ -92,6 +92,6 @@ function changeReadStatus(button) {
         button.style.backgroundColor = 'lightcoral';
         button.textContent = "Not Read";
     }else{
-        console.log("READ STATUS ERROR!")
+        console.error("Read Status Issue! Ensure colors are correct.")
     }
 }
