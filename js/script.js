@@ -27,6 +27,8 @@ formElement.addEventListener('submit', function(e) {
 document.addEventListener('click', function(e){
     if(e.target.id === 'remove-card'){
         removeCard();
+    } else if(e.target.id === 'read'){
+        changeReadStatus(document.getElementById('read'));
     }
 })
 
@@ -60,10 +62,10 @@ function displayLibrary() {
         remove.id = 'remove-card';
 
         if(myLibrary[i].read === true){
-            read.style.backgroundColor = 'green';
+            read.style.backgroundColor = 'lightgreen';
             read.textContent = "Read"
         } else {
-            read.style.backgroundColor = 'red';
+            read.style.backgroundColor = 'lightcoral';
             read.textContent = "Not Read"
         }
 
@@ -80,4 +82,16 @@ function displayLibrary() {
 function removeCard() {
     let button = document.getElementById('remove-card');
     button.parentNode.remove();
+}
+
+function changeReadStatus(button) {
+    if(button.style.backgroundColor === 'lightcoral'){  
+        button.style.backgroundColor = 'lightgreen';
+        button.textContent = "Read";
+    }else if(button.style.backgroundColor === 'lightgreen'){
+        button.style.backgroundColor = 'lightcoral';
+        button.textContent = "Not Read";
+    }else{
+        console.log("READ STATUS ERROR!")
+    }
 }
