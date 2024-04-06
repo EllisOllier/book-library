@@ -4,6 +4,8 @@ const btnSubmitForm = document.getElementById('submit')
 const dialogElement = document.querySelector('dialog');
 const formElement = document.querySelector('form');
 
+window.addEventListener('load', loadLibrary())
+
 btnNewBook.addEventListener('click', function() {
     if(dialogElement.open){
         dialogElement.open = false;
@@ -26,9 +28,9 @@ formElement.addEventListener('submit', function(e) {
 
 document.addEventListener('click', function(e){
     if(e.target.id === 'remove-card'){
-        removeCard();
+        removeCard(e);
     } else if(e.target.id === 'read'){
-        changeReadStatus(document.getElementById('read'));
+        changeReadStatus(e);
     }
 })
 
@@ -41,6 +43,10 @@ function Book(bookTitle, bookAuthor, bookPages, bookRead) {
 
 function addBookToLibrary(book) {
     myLibrary.push(book);
+    while(document.querySelector('.card')){
+        document.querySelector('.card').remove();
+    }
+    loadLibrary();
 }
 
 function displayLibrary() {
@@ -54,9 +60,9 @@ function displayLibrary() {
         let read = document.createElement('button');
         let remove = document.createElement('button');
         
-        title.textContent = myLibrary[i].title;
-        author.textContent = myLibrary[i].author;
-        pages.textContent = myLibrary[i].pages;
+        title.textContent = (`${myLibrary[i].title}`);
+        author.textContent = (`${myLibrary[i].author}`);
+        pages.textContent = (`${myLibrary[i].pages} pages`);
         read.id = "read"
         remove.textContent = "Remove"
         remove.id = 'remove-card';
@@ -79,19 +85,27 @@ function displayLibrary() {
     }
 }
 
-function removeCard() {
-    document.getElementById('remove-card').parentNode.remove();
+function removeCard(e) {
+    e.target.parentNode.remove();
     // TODO: Get button parent object and remove from array
 }
 
-function changeReadStatus(button) {
-    if(button.style.backgroundColor === 'lightcoral'){  
-        button.style.backgroundColor = 'lightgreen';
-        button.textContent = "Read";
-    }else if(button.style.backgroundColor === 'lightgreen'){
-        button.style.backgroundColor = 'lightcoral';
-        button.textContent = "Not Read";
+function changeReadStatus(e) {
+    if(e.target.style.backgroundColor === 'lightcoral'){  
+        e.target.style.backgroundColor = 'lightgreen';
+        e.target.textContent = "Read";
+    }else if(e.target.style.backgroundColor === 'lightgreen'){
+        e.target.style.backgroundColor = 'lightcoral';
+        e.target.textContent = "Not Read";
     }else{
         console.error("Read Status Issue! Ensure colors are correct.")
+    }
+}
+
+function loadLibrary(){
+    if(myLibrary.length > 0){
+        displayLibrary();
+    }else{
+        console.warn("myLibrary is empty")
     }
 }

@@ -12,10 +12,12 @@
         <form>
             <fieldset>
                 <legend>Enter book details</legend>
-                <label for="book-title">Title: <input type="text" id="book-title" required></label>
-                <label for="book-author">Author: <input type="text" id="book-author" required></label>
-                <label for="book-pages">Pages: <input type="number" id="book-pages" required></label>
-                <label for="book-read">Have you read?: <input type="checkbox" id="book-read"></label>
+                <label for="book-title"><input type="text" id="book-title" placeholder="Title" required></label>
+                <label for="book-author"><input type="text" id="book-author" placeholder="Author" required></label>
+                <label for="book-pages"><input type="number" id="book-pages" placeholder="Pages" required></label>
+                <div class="check">
+                    <label for="book-read">Have you read?<input type="checkbox" id="book-read"></label>
+                </div>
                 <button type="submit" id="submit">Submit</button>
             </fieldset>
         </form>
