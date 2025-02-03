@@ -60,6 +60,10 @@ function displayLibrary() {
         let card = document.createElement('div');
         card.className = 'card';
         card.id = myLibrary[i].getBookID();
+
+        let cardContent = document.createElement('div');
+        cardContent.className = 'card-content';
+
         let title = document.createElement('p');
         let author = document.createElement('p');
         let pages = document.createElement('p');
@@ -81,9 +85,10 @@ function displayLibrary() {
             read.textContent = "Not Read"
         }
 
-        card.appendChild(title);
-        card.appendChild(author);
-        card.appendChild(pages);
+        cardContent.appendChild(title);
+        cardContent.appendChild(author);
+        cardContent.appendChild(pages);
+        card.appendChild(cardContent);
         card.appendChild(read);
         card.appendChild(remove);
 

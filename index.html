@@ -12,9 +12,9 @@
         <form>
             <fieldset>
                 <legend>Enter book details</legend>
-                <label for="book-title"><input type="text" id="book-title" placeholder="Title" required></label>
-                <label for="book-author"><input type="text" id="book-author" placeholder="Author" required></label>
-                <label for="book-pages"><input type="number" id="book-pages" placeholder="Pages" required></label>
+                <label for="book-title"><input type="text" id="book-title" placeholder="Title" maxlength="100" required></label>
+                <label for="book-author"><input type="text" id="book-author" placeholder="Author" maxlength="50" required></label>
+                <label for="book-pages"><input type="number" id="book-pages" placeholder="Pages" min="0" required></label>
                 <div class="check">
                     <label for="book-read">Have you read?<input type="checkbox" id="book-read"></label>
                 </div>
