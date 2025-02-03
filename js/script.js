@@ -35,11 +35,16 @@ document.addEventListener('click', function(e){
 })
 
 function Book(bookTitle, bookAuthor, bookPages, bookRead) {
+    this.bookID = myLibrary.length;
     this.title = bookTitle;
     this.author = bookAuthor;
     this.pages = bookPages;
     this.read = bookRead;
 }
+
+Book.prototype.getBookID = function(){
+    return this.bookID;
+};
 
 function addBookToLibrary(book) {
     myLibrary.push(book);
@@ -54,6 +59,7 @@ function displayLibrary() {
     for(let i = 0; i < myLibrary.length; i++){
         let card = document.createElement('div');
         card.className = 'card';
+        card.id = myLibrary[i].getBookID();
         let title = document.createElement('p');
         let author = document.createElement('p');
         let pages = document.createElement('p');
@@ -86,8 +92,15 @@ function displayLibrary() {
 }
 
 function removeCard(e) {
-    e.target.parentNode.remove();
-    // TODO: Get button parent object and remove from array
+    // Get book 
+    let book = e.target.parentElement;
+    // remove book from library array
+    for(let i = 0; i < myLibrary.length; i++){
+        if(myLibrary[i].getBookID() == book.id){
+            myLibrary.splice(i, 1);
+            book.remove();
+        }
+    }
 }
 
 function changeReadStatus(e) {
